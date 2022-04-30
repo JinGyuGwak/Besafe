@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.besafe">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.besafe"
+    tools:ignore="CoarseFineLocation">
+
+    <uses-permission android:name="android.permission.INTERNET">
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_CONTACTS">
+    </uses-permission>
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BeSafe">
+        android:theme="@style/Theme.BeSafe"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".addrActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddAddr"
+            android:exported="false" />
         <activity
             android:name=".WaytoguideActivity"
             android:exported="false" />
@@ -26,8 +43,8 @@
         </activity>
 
         <meta-data
-            android:name="com.kakao.sdk.AppKep"
-            android:value="42b95124e4980a393b3ef7b666c064f7"/>
+            android:name="com.kakao.sdk.AppKey"
+            android:value="42b95124e4980a393b3ef7b666c064f7" />
     </application>
 
 </manifest>

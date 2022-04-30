@@ -10,6 +10,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.besafe.databinding.ActivityMainBinding
 import java.lang.Exception
 import java.security.MessageDigest
@@ -22,12 +24,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        getHashKey()
+        checkPermission()
+
+        val keyHash = com.kakao.util.maps.helper.Utility.getKeyHash(this /* context */)
+        Log.d("Hash",keyHash)
+
+        //getHashKey()
 
         val btn1 = findViewById<Button>(R.id.btn1)
-        val btn2 = findViewById<Button>(R.id.btn2)
+        val btn2 = findViewById<Button>(R.id.btn2) // btn2 는 설정 버튼
 
-        btn2.setOnClickListener {
+        btn2.setOnClickListener { // btn2 는 설정 버튼
             val intent = Intent(this, SettingActivity::class.java)
             startActivity(intent)
         }
@@ -36,28 +43,39 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, WaytoguideActivity::class.java)
             startActivity(intent)
         }
-
-
     }
-
     //카카오 해시키
-    @RequiresApi(Build.VERSION_CODES.P)
     private fun getHashKey() {
-        try{
-            val info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNING_CERTIFICATES)
-            val signatures = info.signingInfo.apkContentsSigners
-            val md = MessageDigest.getInstance("SHA")
-            for (signature in signatures) {
-                val md: MessageDigest
-                md = MessageDigest.getInstance("SHA")
+        var packageInfo: PackageInfo? = null
+        try {
+            packageInfo = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
+        } catch (e: PackageManager.NameNotFoundException) {
+            e.printStackTrace()
+        }
+        if (packageInfo == null) Log.e("KeyHash", "KeyHash:null")
+        for (signature in packageInfo!!.signatures) {
+            try {
+                val md = MessageDigest.getInstance("SHA")
                 md.update(signature.toByteArray())
-                val key = String(Base64.encode(md.digest(), 0))
-                Log.d("Hash Key: ", "!@!@!key!@!@!")
+                Log.d("KeyHash", Base64.encodeToString(md.digest(), Base64.DEFAULT))
+            } catch (e: NoSuchAlgorithmException) {
+                Log.e("KeyHash", "Unable to get MessageDigest. signature=$signature", e)
             }
-        } catch(e: Exception){
-            Log.e("not fount", e.toString())
         }
     }
 
+    fun checkPermission() {
+        val locationPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+        val contactPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS)
+        if (locationPermission != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions()
+        }
+        if (contactPermission != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions()
+        }
+    }
 
+    private fun requestPermissions() {
+        ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.READ_CONTACTS), 99)
+    }
 }
