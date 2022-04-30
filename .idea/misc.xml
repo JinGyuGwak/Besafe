@@ -3,13 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/activity_addr.xml" value="0.21875" />
         <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/activity_waytoguide.xml" value="0.2046875" />
         <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/setting_layou.xml" value="0.2046875" />
         <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/setting_layout.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/settinglayout.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/waytoguide_layout.xml" value="0.36614583333333334" />
+        <entry key="..\:/pj/BeSafe/app/src/main/res/layout/activity_addr.xml" value="0.20572916666666666" />
+        <entry key="..\:/pj/BeSafe/app/src/main/res/layout/activity_home_addr_set.xml" value="0.19375" />
         <entry key="..\:/pj/BeSafe/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/pj/BeSafe/app/src/main/res/layout/setting_layout.xml" value="0.19375" />
+        <entry key="..\:/pj/BeSafe/app/src/main/res/layout/waytoguide_layout.xml" value="0.19375" />
+        <entry key="..\:/pj/BeSafe/app/src/main/res/xml-mnc001/network_security_config.xml" value="0.19739583333333333" />
       </map>
     </option>
   </component>
