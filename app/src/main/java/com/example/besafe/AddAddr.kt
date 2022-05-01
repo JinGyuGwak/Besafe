@@ -26,6 +26,12 @@ class AddAddr : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val adapter = RecyclerAdapter()
+        adapter.helper = helper
+        adapter.listData.addAll(helper.selectMemo())
+        binding.recyclerMemo.adapter =adapter
+        binding.recyclerMemo.layoutManager = LinearLayoutManager(this)
+
 
 
 
@@ -49,23 +55,16 @@ class AddAddr : AppCompatActivity() {
                     val name = cursor.getString(0)
                     val phone = cursor.getString(1)
 
-                    val adapter = RecyclerAdapter()
-                    adapter.helper = helper
+
                     adapter.listData.addAll(helper.selectMemo())
                     binding.recyclerMemo.adapter =adapter
                     binding.recyclerMemo.layoutManager = LinearLayoutManager(this)
 
                         val memo = Memo(null, phone, System.currentTimeMillis())
-
                         helper.insertMemo(memo)
                         adapter.listData.clear()
                         adapter.listData.addAll(helper.selectMemo())
                         adapter.notifyDataSetChanged()
-                        binding.editMemo.setText("")
-
-
-
-
                 }
             }
         }
