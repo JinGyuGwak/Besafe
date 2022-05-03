@@ -24,6 +24,9 @@
             android:name=".addrActivity"
             android:exported="false" />
         <activity
+            android:name=".AddAddr"
+            android:exported="false" />
+        <activity
             android:name=".WaytoguideActivity"
             android:exported="false" />
         <activity

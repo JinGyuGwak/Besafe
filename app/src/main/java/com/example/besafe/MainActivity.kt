@@ -29,14 +29,12 @@ class MainActivity : AppCompatActivity() {
         val keyHash = com.kakao.util.maps.helper.Utility.getKeyHash(this /* context */)
         Log.d("Hash",keyHash)
 
-
-
         //getHashKey()
 
         val btn1 = findViewById<Button>(R.id.btn1)
-        val btn2 = findViewById<Button>(R.id.btn2)
+        val btn2 = findViewById<Button>(R.id.btn2) // btn2 는 설정 버튼
 
-        btn2.setOnClickListener {
+        btn2.setOnClickListener { // btn2 는 설정 버튼
             val intent = Intent(this, SettingActivity::class.java)
             startActivity(intent)
         }
@@ -45,10 +43,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, WaytoguideActivity::class.java)
             startActivity(intent)
         }
-
-
     }
-
     //카카오 해시키
     private fun getHashKey() {
         var packageInfo: PackageInfo? = null
@@ -68,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    // 권한 확인
+
     fun checkPermission() {
         val locationPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
         val contactPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS)
@@ -79,7 +74,7 @@ class MainActivity : AppCompatActivity() {
             requestPermissions()
         }
     }
-    //권한 요청
+
     private fun requestPermissions() {
         ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.READ_CONTACTS), 99)
     }

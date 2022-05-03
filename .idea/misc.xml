@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/BeSafe/app/src/main/res/layout/activity_addr.xml" value="0.23802083333333332" />
+        <entry key="..\:/BeSafe/app/src/main/res/layout/activity_main.xml" value="0.23802083333333332" />
+        <entry key="..\:/BeSafe/app/src/main/res/layout/add_addr.xml" value="0.23802083333333332" />
+        <entry key="..\:/BeSafe/app/src/main/res/layout/addr_recycler.xml" value="0.23802083333333332" />
+        <entry key="..\:/BeSafe/app/src/main/res/layout/setting_layout.xml" value="0.23802083333333332" />
+        <entry key="..\:/BeSafe/app/src/main/res/layout/waytoguide_layout.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/activity_addr.xml" value="0.21875" />
         <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/activity_waytoguide.xml" value="0.2046875" />
@@ -10,6 +16,12 @@
         <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/setting_layout.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/settinglayout.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/waytoguide_layout.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/abcd/AndroidStudioProjects/BeSafe/app/src/main/res/layout/activity_addr.xml" value="0.14356884057971014" />
+        <entry key="..\:/Users/abcd/AndroidStudioProjects/BeSafe/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/abcd/AndroidStudioProjects/BeSafe/app/src/main/res/layout/add_addr.xml" value="0.33" />
+        <entry key="..\:/Users/abcd/AndroidStudioProjects/BeSafe/app/src/main/res/layout/addr_recycler.xml" value="0.28072916666666664" />
+        <entry key="..\:/Users/abcd/AndroidStudioProjects/BeSafe/app/src/main/res/layout/setting_layout.xml" value="0.24375" />
+        <entry key="..\:/Users/abcd/AndroidStudioProjects/BeSafe/app/src/main/res/layout/waytoguide_layout.xml" value="0.24375" />
         <entry key="..\:/pj/BeSafe/app/src/main/res/layout/activity_addr.xml" value="0.20572916666666666" />
         <entry key="..\:/pj/BeSafe/app/src/main/res/layout/activity_home_addr_set.xml" value="0.19375" />
         <entry key="..\:/pj/BeSafe/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
@@ -19,7 +31,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
