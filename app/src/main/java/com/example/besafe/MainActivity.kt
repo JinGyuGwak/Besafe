@@ -31,15 +31,15 @@ class MainActivity : AppCompatActivity() {
 
         //getHashKey()
 
-        val btn1 = findViewById<Button>(R.id.btn1)
-        val btn2 = findViewById<Button>(R.id.btn2) // btn2 는 설정 버튼
+        val btn1 = findViewById<Button>(R.id.btn1) //안전귀가 버튼
+        val btn2 = findViewById<Button>(R.id.btn2) //설정 버튼
 
-        btn2.setOnClickListener { // btn2 는 설정 버튼
+        btn2.setOnClickListener { //설정 버튼
             val intent = Intent(this, SettingActivity::class.java)
             startActivity(intent)
         }
 
-        btn1.setOnClickListener {
+        btn1.setOnClickListener { //안전귀가 버튼
             val intent = Intent(this, WaytoguideActivity::class.java)
             startActivity(intent)
         }
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
+    //권한확인
     fun checkPermission() {
         val locationPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
         val contactPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS)
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
             requestPermissions()
         }
     }
-
+    //권한요청
     private fun requestPermissions() {
         ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.READ_CONTACTS), 99)
     }
