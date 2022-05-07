@@ -23,7 +23,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.Holder>() {
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val memo = listData.get(position)
         holder.setMemo(memo)
-    }
+    }//listData[0].textContent
 
     inner class Holder(val binding: AddrRecyclerBinding) : RecyclerView.ViewHolder(binding.root){
         var mMemo : Memo? = null

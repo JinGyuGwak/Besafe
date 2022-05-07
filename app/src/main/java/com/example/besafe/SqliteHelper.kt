@@ -38,6 +38,7 @@ class SqliteHelper(context: Context, name: String, version: Int):
         val cursor = rd.rawQuery(select, null)
 
 
+
         while (cursor.moveToNext()){   // 커서는 현재 위치를 포함하는 데이터 요소
             val noIdx = cursor.getColumnIndex("no")
             val contentIdx = cursor.getColumnIndex("content")

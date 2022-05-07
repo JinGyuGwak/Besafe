@@ -14,11 +14,12 @@ class SettingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val intent = Intent(this,AddAddr::class.java)
-        val intent1 = Intent(this,WaytoguideActivity::class.java)
+        val intent = Intent(this, AddAddr::class.java)
+        val intent1 = Intent(this, WaytoguideActivity::class.java)
+        val intent2 = Intent(this, addrActivity::class.java)
 
-        binding.btn4.setOnClickListener{startActivity(intent)} // 비상연락망 설정
-        binding.btn5.setOnClickListener{startActivity(intent1)} // 길안내방식
-
+        binding.btn3.setOnClickListener { startActivity(intent2) } //집주소 설정
+        binding.btn4.setOnClickListener { startActivity(intent) } // 비상연락망 설정
+        binding.btn5.setOnClickListener { startActivity(intent1) } // 길안내방식
     }
 }
