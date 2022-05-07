@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class SqliteHelper(context: Context, name: String, version: Int):
     SQLiteOpenHelper(context, name, null, version){
+    var test ="000"
+
 
     override fun onCreate(db: SQLiteDatabase?) { //사용할 데이터베이스임
         val create = "create table memo (" +
@@ -35,6 +37,7 @@ class SqliteHelper(context: Context, name: String, version: Int):
         val rd = readableDatabase
         val cursor = rd.rawQuery(select, null)
 
+
         while (cursor.moveToNext()){   // 커서는 현재 위치를 포함하는 데이터 요소
             val noIdx = cursor.getColumnIndex("no")
             val contentIdx = cursor.getColumnIndex("content")
@@ -44,8 +47,12 @@ class SqliteHelper(context: Context, name: String, version: Int):
             val content = cursor.getString(contentIdx)
             val datetime = cursor.getLong(dateIdx)
 
+            test = cursor.getString(contentIdx)
+
             list.add(Memo(no, content, datetime))
         }
+
+
         cursor.close()
         rd.close()
         return list

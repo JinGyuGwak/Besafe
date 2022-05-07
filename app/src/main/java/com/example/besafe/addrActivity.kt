@@ -14,20 +14,19 @@ import android.R
 
 
 class addrActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityAddrBinding
+
+    val binding by lazy {ActivityAddrBinding.inflate(layoutInflater)}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.example.besafe.R.layout.activity_addr)
 
-        /*val binding = ActivityAddrBinding.inflate(layoutInflater)
+
         val view = binding.root
         setContentView(view)
 
 
         val mapView = MapView(this)
-        binding.kakaomap.addView(mapView)*/
 
-        val mapView = MapView(this)
 
         val mapViewContainer = findViewById<View>(com.example.besafe.R.id.map_view) as ViewGroup
         mapViewContainer.addView(mapView)

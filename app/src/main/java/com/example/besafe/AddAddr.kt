@@ -26,6 +26,7 @@ class AddAddr : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        // 데이터베이스 가져오는 코드
         val adapter = RecyclerAdapter()
         adapter.helper = helper
         adapter.listData.addAll(helper.selectMemo())
@@ -49,12 +50,9 @@ class AddAddr : AppCompatActivity() {
                     null,
                     null
                 )
-                Log.d("test", "cursor size : ${cursor?.count}")
-
+                // 주소록에서 번호 가져오는 코드
                 if (cursor!!.moveToFirst()) {
-                    val name = cursor.getString(0)
                     val phone = cursor.getString(1)
-
 
                     adapter.listData.addAll(helper.selectMemo())
                     binding.recyclerMemo.adapter =adapter
@@ -62,6 +60,7 @@ class AddAddr : AppCompatActivity() {
 
                         val memo = Memo(null, phone, System.currentTimeMillis())
                         helper.insertMemo(memo)
+                        Log.d("값 확인1", "현재 값은 ${helper.test}")
                         adapter.listData.clear()
                         adapter.listData.addAll(helper.selectMemo())
                         adapter.notifyDataSetChanged()
