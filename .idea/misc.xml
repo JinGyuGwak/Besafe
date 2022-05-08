@@ -19,6 +19,8 @@
         <entry key="..\:/Users/abcd/AndroidStudioProjects/besafe_1/Besafe/app/src/main/res/layout/guidemap_layout.xml" value="0.3536458333333333" />
         <entry key="..\:/Users/abcd/AndroidStudioProjects/besafe_1/Besafe/app/src/main/res/layout/setting_layout.xml" value="0.3536458333333333" />
         <entry key="..\:/Users/abcd/AndroidStudioProjects/besafe_1/Besafe/app/src/main/res/layout/waytoguide_layout.xml" value="0.3536458333333333" />
+        <entry key="..\:/pj/20220508/app/src/main/res/layout/activity_addr.xml" value="0.358695652173913" />
+        <entry key="..\:/pj/20220508/app/src/main/res/layout/guidemap_layout.xml" value="0.358695652173913" />
         <entry key="..\:/pj/BeSafe/app/src/main/res/layout/activity_addr.xml" value="0.20572916666666666" />
         <entry key="..\:/pj/BeSafe/app/src/main/res/layout/activity_home_addr_set.xml" value="0.19375" />
         <entry key="..\:/pj/BeSafe/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
@@ -28,7 +30,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
