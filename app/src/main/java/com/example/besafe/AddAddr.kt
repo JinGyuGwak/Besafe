@@ -72,7 +72,5 @@ class AddAddr : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI)
             requestLauncher.launch(intent)
         }
-
-
     }
 }

@@ -6,6 +6,19 @@
     android:layout_height="match_parent">
 
 
+    <RelativeLayout
+        android:id="@+id/guidemap_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </RelativeLayout>
+
     <LinearLayout
         android:id="@+id/timeCountSettingLV"
         android:layout_width="match_parent"
@@ -68,4 +81,25 @@
             android:gravity="center"
             android:inputType="number" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_concenience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="편의점"
+        app:layout_constraintEnd_toStartOf="@+id/btn_police"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="102dp" />
+
+    <Button
+        android:id="@+id/btn_police"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="경찰서"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_concenience"
+        tools:layout_editor_absoluteY="102dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
