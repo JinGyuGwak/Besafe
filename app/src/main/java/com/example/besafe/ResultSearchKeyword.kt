@@ -1,6 +1,5 @@
 package com.example.besafe
 
-
 data class ResultSearchKeyword(
     var meta: PlaceMeta,                // 장소 메타데이터
     var documents: List<Place>          // 검색 결과

@@ -1,6 +1,6 @@
 package com.example.besafe
 
-
+import android.content.Intent
 import android.os.Bundle
 import android.telephony.SmsManager
 import android.util.Log
@@ -15,13 +15,13 @@ import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
 import net.daum.mf.map.api.*
+import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 import kotlin.concurrent.thread
-
 
 
 class guidemapActivity : AppCompatActivity(){
@@ -67,7 +67,7 @@ class guidemapActivity : AppCompatActivity(){
             // API 서버에 요청
             call.enqueue(object: Callback<ResultSearchKeyword> {
                 override fun onResponse(
-                    call: retrofit2.Call<ResultSearchKeyword>,
+                    call: Call<ResultSearchKeyword>,
                     response: Response<ResultSearchKeyword>
                 ) {
                     // 통신 성공 (검색 결과는 response.body()에 담겨있음)
@@ -89,7 +89,7 @@ class guidemapActivity : AppCompatActivity(){
                     mapView.addPOIItems(markerArr.toTypedArray())
                 }
 
-                override fun onFailure(call: retrofit2.Call<ResultSearchKeyword>, t: Throwable) {
+                override fun onFailure(call: Call<ResultSearchKeyword>, t: Throwable) {
                     // 통신 실패
                     Log.w("MainActivity", "통신 실패: ${t.message}")
                 }
@@ -108,7 +108,7 @@ class guidemapActivity : AppCompatActivity(){
             // API 서버에 요청
             call.enqueue(object: Callback<ResultSearchKeyword> {
                 override fun onResponse(
-                    call: retrofit2.Call<ResultSearchKeyword>,
+                    call: Call<ResultSearchKeyword>,
                     response: Response<ResultSearchKeyword>
                 ) {
                     // 통신 성공 (검색 결과는 response.body()에 담겨있음)
@@ -130,7 +130,7 @@ class guidemapActivity : AppCompatActivity(){
                     mapView.addPOIItems(markerArr.toTypedArray())
                 }
 
-                override fun onFailure(call: retrofit2.Call<ResultSearchKeyword>, t: Throwable) {
+                override fun onFailure(call: Call<ResultSearchKeyword>, t: Throwable) {
                     // 통신 실패
                     Log.w("MainActivity", "통신 실패: ${t.message}")
                 }

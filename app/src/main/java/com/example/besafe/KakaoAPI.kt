@@ -1,6 +1,5 @@
 package com.example.besafe
-
-
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Query
@@ -13,5 +12,5 @@ interface KakaoAPI {
         // 매개변수 추가 가능
         // @Query("category_group_code") category: String
 
-    ): retrofit2.Call<ResultSearchKeyword>    // 받아온 정보가 ResultSearchKeyword 클래스의 구조로 담김
+    ): Call<ResultSearchKeyword>    // 받아온 정보가 ResultSearchKeyword 클래스의 구조로 담김
 }
