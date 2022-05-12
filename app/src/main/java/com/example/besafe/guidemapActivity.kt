@@ -24,6 +24,7 @@ import kotlin.concurrent.thread
 class guidemapActivity : AppCompatActivity(){
     var started = false
     var total=0
+
     val helper = SqliteHelper(this, "memo", 1)
     private var markerArr = arrayListOf<MapPOIItem>()
     companion object {
