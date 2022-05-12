@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/BeSafe/app/src/main/res/layout/guidemap_layout.xml" value="0.1875" />
         <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/activity_addr.xml" value="0.21875" />
         <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/MY-PC21/AndroidStudioProjects/BeSafe/app/src/main/res/layout/activity_waytoguide.xml" value="0.2046875" />
