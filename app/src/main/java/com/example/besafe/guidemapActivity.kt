@@ -1,6 +1,6 @@
 package com.example.besafe
 
-import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.telephony.SmsManager
 import android.util.Log
@@ -11,9 +11,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.addr_recycler.*
-import net.daum.mf.map.api.MapPOIItem
-import net.daum.mf.map.api.MapPoint
-import net.daum.mf.map.api.MapView
 import net.daum.mf.map.api.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -28,7 +25,6 @@ class guidemapActivity : AppCompatActivity(){
     var started = false
     var total=0
     val helper = SqliteHelper(this, "memo", 1)
-    private var list = arrayListOf<Place>()
     private var markerArr = arrayListOf<MapPOIItem>()
     companion object {
         const val BASE_URL = "https://dapi.kakao.com/"
@@ -43,19 +39,42 @@ class guidemapActivity : AppCompatActivity(){
         adapter.listData.addAll(helper.selectMemo())
         start()
 
+
         val mapView = MapView(this)
         val mapViewContainer = findViewById<View>(R.id.guidemap_view) as ViewGroup
         mapViewContainer.addView(mapView)
         mapView.mapViewEventListener
         mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading)
-        Log.d("Test","mapview ${mapView.mapCenterPoint.mapPointGeoCoord.latitude}") //위도
-        Log.d("Test","mapview ${mapView.mapCenterPoint.mapPointGeoCoord.longitude}")//경도
 
         val btn_concenience = findViewById<Button>(R.id.btn_concenience) //편의점 표시 버튼
         val btn_police = findViewById<Button>(R.id.btn_police) //편의점 표시 버튼
 
+        val circle1 = MapCircle(    //범죄 장소 원그리기
+            MapPoint.mapPointWithGeoCoord(37.3766, 126.6378),  // 범죄발생지역
+            50,  // radius
+            Color.argb(128, 255, 0, 0),  // strokeColor
+            Color.argb(128, 0, 255, 0) // fillColor
+        )
+        circle1.tag = 1234
+        mapView.addCircle(circle1)
+        val circle2 = MapCircle(    //범죄 장소 원그리기
+            MapPoint.mapPointWithGeoCoord(37.3793, 126.6375),  // 범죄발생지역
+            50,  // radius
+            Color.argb(128, 255, 0, 0), // strokeColor
+            Color.argb(128, 255, 255, 0) // fillColor
+        )
+        circle2.tag = 5678
+        mapView.addCircle(circle2)
+
+// 지도뷰의 중심좌표와 줌레벨을 Circle이 모두 나오도록 조정.
+        val mapPointBoundsArray = arrayOf(circle1.bound, circle2.bound)
+        val mapPointBounds = MapPointBounds(mapPointBoundsArray)
+        val padding = 50 // px
+
+        mapView.moveCamera(CameraUpdateFactory.newMapPointBounds(mapPointBounds, padding))
+
         btn_concenience.setOnClickListener { //편의점 클릭
-            mapView.removeAllPOIItems()
+
             val keyword = "송도동 편의점"
             val retrofit = Retrofit.Builder()   // Retrofit 구성
                 .baseUrl(BASE_URL)
@@ -63,6 +82,7 @@ class guidemapActivity : AppCompatActivity(){
                 .build()
             val api = retrofit.create(KakaoAPI::class.java)   // 통신 인터페이스를 객체로 생성
             val call = api.getSearchKeyword(API_KEY, keyword)   // 검색 조건 입력
+
 
             // API 서버에 요청
             call.enqueue(object: Callback<ResultSearchKeyword> {
@@ -72,12 +92,8 @@ class guidemapActivity : AppCompatActivity(){
                 ) {
                     // 통신 성공 (검색 결과는 response.body()에 담겨있음)
                     val re = response.body()
-
                     Log.d("Test", "Raw: ${response.raw()}")
                     Log.d("Test", "Body: ${response.body()}")
-                    //Log.d("Test", "Code: ${response.body()!!.documents}")
-                    list.addAll(response.body()!!.documents)
-                    Log.d("Test", "함수: ${list.size}")
 
                     for (data in response.body()!!.documents) {
                         val marker = MapPOIItem()
@@ -95,7 +111,7 @@ class guidemapActivity : AppCompatActivity(){
                 }
             })
         }
-        btn_police.setOnClickListener{
+        btn_police.setOnClickListener{  //경찰서 클릭
             mapView.removeAllPOIItems()
             val keyword = "송도동 경찰서"
             val retrofit = Retrofit.Builder()   // Retrofit 구성
@@ -113,12 +129,8 @@ class guidemapActivity : AppCompatActivity(){
                 ) {
                     // 통신 성공 (검색 결과는 response.body()에 담겨있음)
                     val re = response.body()
-
                     Log.d("Test", "Raw: ${response.raw()}")
                     Log.d("Test", "Body: ${response.body()}")
-                    //Log.d("Test", "Code: ${response.body()!!.documents}")
-                    list.addAll(response.body()!!.documents)
-                    Log.d("Test", "함수: ${list.size}")
 
                     for (data in response.body()!!.documents) {
                         val marker = MapPOIItem()
@@ -136,11 +148,7 @@ class guidemapActivity : AppCompatActivity(){
                 }
             })
         }
-
-
     }
-
-
 
     fun start(){
         val secondEdit = findViewById<TextView>(R.id.secondedit)
