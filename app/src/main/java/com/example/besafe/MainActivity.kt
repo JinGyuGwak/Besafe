@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         val btn2 = findViewById<Button>(R.id.btn2) //설정 버튼
 
         btn2.setOnClickListener { //설정 버튼
-            val intent = Intent(this, SettingActivity::class.java)
+            val intent = Intent(this, AddAddr::class.java) // 수정수정***************************
             startActivity(intent)
         }
 

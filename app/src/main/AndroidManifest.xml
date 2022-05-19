@@ -33,9 +33,6 @@
             android:name=".WaytoguideActivity"
             android:exported="false" />
         <activity
-            android:name=".SettingActivity"
-            android:exported="false" />
-        <activity
             android:name=".guidemapActivity"
             android:exported="false" />
         <activity

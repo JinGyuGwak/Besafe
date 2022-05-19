@@ -8,13 +8,9 @@ import com.example.besafe.databinding.AddAddrBinding
 import android.content.Intent
 import android.provider.ContactsContract
 import android.util.Log
-
-
-import android.widget.Button
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 
-import com.example.besafe.databinding.SettingLayoutBinding
 
 
 

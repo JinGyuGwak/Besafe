@@ -10,7 +10,7 @@
         android:id="@+id/btn2"
         android:layout_width="331dp"
         android:layout_height="wrap_content"
-        android:text="설정"
+        android:text="비상연락망 설정"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
