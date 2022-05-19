@@ -36,6 +36,7 @@ class guidemapActivity : AppCompatActivity(){
         const val BASE_URL = "https://dapi.kakao.com/"
         const val API_KEY = "KakaoAK 607ec9bb5b4778084d650f4a705a78e9"  // REST API 키
     }
+    //수정 된거
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.guidemap_layout)
